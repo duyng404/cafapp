@@ -1,3 +1,7 @@
 venv
 .idea
-
+tmp
+cafapp_uwsgi.ini
+cafapp_nginx.conf
+__pycache__
+deploy_instructions.txt
