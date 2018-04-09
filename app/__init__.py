@@ -12,7 +12,7 @@ cas = CAS(app)
 app.config['CAS_SERVER'] = 'https://sso.gac.edu'
 app.config['CAS_LOGIN_ROUTE'] = '/idp/profile/cas/login'
 app.config['CAS_LOGOUT_ROUTE'] = '/idp/profile/cas/logout'
-app.config['CAS_VALIDATE_ROUTE'] = '/cas/serviceValidate'
+app.config['CAS_VALIDATE_ROUTE'] = '/idp/profile/cas/serviceValidate'
 app.config['CAS_AFTER_LOGIN'] = 'default'
 
 app.config['DEBUG'] = True
