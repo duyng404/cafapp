@@ -1,4 +1,5 @@
-from CafApp import db
+from app import db
+from app.data.user import User
 
 
 def dump_datetime(value):
