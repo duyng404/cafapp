@@ -1,4 +1,4 @@
-from app import cas, db
+from app import cas, db, DEV
 from app.data.user import User
 from app.api.permissions import valid_call
 from flask import abort
@@ -6,17 +6,18 @@ from flask_restful import Resource, reqparse
 
 
 class UserApi(Resource):
-    @valid_call
+    method_decorators = [valid_call]
+
     def get(self, username):
-        caller = User.query.filter_by(username=cas.username)
-        if cas.username != username or not caller.is_admin:
+        caller = User.query.filter_by(username=username)
+        if not DEV and (cas.username != username or not caller.is_admin):
             abort(403)
         return User.query.filter_by(username=username).one().serialize
 
 
 class UsersApi(Resource):
+    method_decorators = [valid_call]
 
-    @valid_call
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('username', required=True)
