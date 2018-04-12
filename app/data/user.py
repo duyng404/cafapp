@@ -3,7 +3,8 @@ from app import db
 
 class User(db.Model):
     username = db.Column(db.String(120), unique=True, nullable=False, primary_key=True)
-    phonenumber = db.Column(db.String(11), nullable=False)
+    full_name = db.Column(db.String(120), nullable=False)
+    student_id = db.Column(db.Integer)
     is_admin = db.Column(db.Boolean, default=False)
     orders = db.relationship('Order', backref='user', lazy=True)
 
@@ -11,7 +12,8 @@ class User(db.Model):
     def serialize(self):
         return {
             'username'      : self.username,
-            'phonenumber'   : self.phonenumber,
+            'full_name'     : self.full_name,
+            'student_id'    : self.student_id,
             'is_admin'      : self.is_admin,
             'orders'        : self.serialize_orders
         }
