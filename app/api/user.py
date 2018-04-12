@@ -24,7 +24,7 @@ class UsersApi(Resource):
                  'full_name'  : '{} {}'.format(
                                 cas.attributes.get('cas:givenName', ''),
                                 cas.attributes.get('cas:surname', '')),
-                 'student_id' : cas.attributes.id or None
+                 'student_id' : cas.attributes.get('cas:id')
                  }
             u = User(**d)
         else:
