@@ -17,7 +17,7 @@ meals = db.Table('meals',
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
-    created = db.Column(db.DateTime)
+    created = db.Column(db.DateTime, nullable=False)
     contents = db.relationship('Menu', secondary=meals, lazy='subquery',
                                backref=db.backref('orders', lazy=True))
     owner = db.Column(db.String(120), db.ForeignKey('user.username'), nullable=False)

@@ -14,6 +14,7 @@ DEV = True
 app = Flask(__name__)
 # Initialize SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432/cafapp_dev'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 # Flask-Restful config

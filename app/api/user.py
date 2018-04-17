@@ -19,7 +19,7 @@ class UsersApi(Resource):
     method_decorators = [valid_call]
 
     def post(self):
-        if DEV:
+        if not DEV:
             d = {'username'   : cas.username,
                  'full_name'  : '{} {}'.format(
                                 cas.attributes.get('cas:givenName', ''),
@@ -34,9 +34,11 @@ class UsersApi(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument('username', required=True)
             parser.add_argument('is_admin', type=bool, default=False)
+            parser.add_argument('full_name', required=True)
 
             args = parser.parse_args()
 
             u = User(**args)
         db.session.add(u)
         db.session.commit()
+        return u.serialize, 201
