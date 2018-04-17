@@ -13,7 +13,7 @@ DEV = True
 # Initialize the app
 app = Flask(__name__)
 # Initialize SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432/cafapp_dev'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ryuko:password@127.0.0.1:5432/cafapp_dev'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 # Flask-Restful config
@@ -24,7 +24,7 @@ app.config['CAS_SERVER'] = 'https://sso.gac.edu'
 app.config['CAS_LOGIN_ROUTE'] = '/idp/profile/cas/login'
 app.config['CAS_LOGOUT_ROUTE'] = '/idp/profile/cas/logout'
 app.config['CAS_VALIDATE_ROUTE'] = '/idp/profile/cas/serviceValidate'
-app.config['CAS_AFTER_LOGIN'] = 'default'
+app.config['CAS_AFTER_LOGIN'] = 'landing_UI'
 
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 's3cr3t'

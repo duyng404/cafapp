@@ -2,7 +2,7 @@ from app import cas, DEV
 from app.data.user import User
 from functools import wraps
 from flask import abort
-
+from flask_cas import login_required
 
 def valid_call(f):
     @wraps(f)
@@ -24,3 +24,12 @@ def is_admin(f):
             return f(*args, **kwargs)
         abort(403)
     return wrapped_function
+
+def our_login_required(f):
+    @wraps(f)
+    def inner_function(*args, **kwargs):
+        if DEV:
+            return f(*args, **kwargs)
+        return login_required(f)(*args, **kwargs)
+    return inner_function
+
