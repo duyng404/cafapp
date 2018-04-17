@@ -25,6 +25,7 @@ app.config['CAS_LOGIN_ROUTE'] = '/idp/profile/cas/login'
 app.config['CAS_LOGOUT_ROUTE'] = '/idp/profile/cas/logout'
 app.config['CAS_VALIDATE_ROUTE'] = '/idp/profile/cas/serviceValidate'
 app.config['CAS_AFTER_LOGIN'] = 'landing_UI'
+app.config['CAS_AFTER_LOGOUT'] = 'landing_UI'
 
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 's3cr3t'
