@@ -8,8 +8,9 @@ from flask_restful import Resource, reqparse
 class UserApi(Resource):
     method_decorators = [valid_call]
 
+    #TODO: Handle case where no entry is found
     def get(self, username):
-        caller = User.query.filter_by(username=username)
+        caller = User.query.filter_by(username=username).one()
         if not DEV and (cas.username != username or not caller.is_admin):
             abort(403)
         return User.query.filter_by(username=username).one().serialize

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>
+		{% if title %}
+		{{ title }} | CafApp
+		{% else %}
+		CafApp
+		{% endif %}
+	</title>
+
+</head>
+<body>
+
+	{% include 'topbar.html' %}
+
+	{% block content %}{% endblock %}
+
+	{% include 'footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<div id="topbar">
+	Navigation:
+	<ul>
+		<li><a href="/">CafApp Home</a></li>
+		<li><a href="/about">About Us</a></li>
+		<li><a href="/menu">Browse Menu</a></li>
+		<li><a href="/order">ORDER NOW</a></li>
+		{% if user %}
+		<li>logged in as: {{ user.full_name }} ({{ user.username }})</li>
+		<li><a href="/profile">My Profile</a></p>
+		<li><a href="/logout">Logout</a></p>
+		{% endif %}
+	</ul>
+</div>

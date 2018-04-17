@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Hello, {{ user.full_name }}</h2>
+<p>This is your profile page</p>
+<p>Your username is: {{ user.username }}</p>
+<p>Your student id is: {{ user.student_id }}</p>
+<p>Your admin status is: {{ user.is_admin }}</p>
+<p>I really wish to show you more information but I don't have any. Sadface.</p>
+
+{% endblock %}
