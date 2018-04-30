@@ -6,4 +6,3 @@ cafapp_nginx.conf
 __pycache__
 deploy_instructions.txt
 config.py
-migrations/

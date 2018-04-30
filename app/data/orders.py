@@ -8,17 +8,19 @@ def dump_datetime(value):
         return None
     return [value.strftime("%Y-%m-%d"), value.strftime("%H:%M:%S")]
 
-meals = db.Table('meals',
-                 db.Column('order_id', db.Integer, db.ForeignKey('order.id'), primary_key=True),
-                 db.Column('menu_id', db.Integer, db.ForeignKey('menu.id'), primary_key=True)
-                 )
+
+order_menu = db.Table('order_menu',
+                      db.Column('id', db.Integer, primary_key=True),
+                      db.Column('order_id', db.Integer, db.ForeignKey('order.id')),
+                      db.Column('menu_id', db.Integer, db.ForeignKey('menu.id'))
+                     )
 
 
 class Order(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-
+    id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.DateTime, nullable=False)
-    contents = db.relationship('Menu', secondary=meals, lazy='subquery',
+    status = db.Column(db.Integer)
+    contents = db.relationship('Menu', secondary=order_menu, lazy='subquery',
                                backref=db.backref('orders', lazy=True))
     owner = db.Column(db.String(120), db.ForeignKey('user.username'), nullable=False)
 
@@ -37,3 +39,12 @@ class Menu(db.Model):
     name = db.Column(db.String(100))
     description = db.Column(db.String(200))
     price = db.Column(db.Numeric)
+
+    @property
+    def serialize(self):
+        return {
+            'id'          : self.id,
+            'name'        : self.name,
+            'description' : self.description,
+            'price'       : self.price
+        }
