@@ -10,6 +10,10 @@
 		CafApp
 		{% endif %}
 	</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/fuyuzuki.css')}}" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway:900|Source+Sans+Pro:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/fontawesome/css/font-awesome.min.css')}}" type="text/css" />
+	<script type="text/javascript" src="{{ url_for('static',filename='js/jquery-3.3.1.min.js') }}"></script>
 
 </head>
 <body>
@@ -19,6 +23,8 @@
 	{% block content %}{% endblock %}
 
 	{% include 'footer.html' %}
+
+	<script type="text/javascript" src="{{ url_for('static',filename='js/ui.js') }}"></script>
 
 </body>
 </html>

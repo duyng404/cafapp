@@ -1,8 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
 
-<p>Logged in successful.</p>
-<p>You are now ready to order</p>
-<p>This is the page where the menu will show up and you can choose food from the menu and everything.</p>
+<h1>Build Your Order</h1>
+<p class="desc">Click on a menu item to add it to cart. Click multiple times to add multiple.</p>
 
+<div id="menu" class="order">
+	<div id="menu-grid">
+			<div class="menu-item">
+				<img src="/static/img/chickennuggets.jpeg" />
+				<div class="overlay"></div>
+				<div class="menu-item-desc">
+					<h3>Chicken Nugget</h3>
+					<p>If only such a thing exists at the caf</p>
+				</div>
+				<div class="price">99.98$</div>
+				<div class="cart-overlay"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+			</div>
+
+			<div class="menu-item">
+				<img src="/static/img/chickennuggets.jpeg" />
+				<div class="overlay"></div>
+				<div class="menu-item-desc">
+					<h3>Chicken Nugget</h3>
+					<p>If only such a thing exists at the caf</p>
+				</div>
+				<div class="price">99.98$</div>
+				<div class="cart-overlay"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+			</div>
+
+			<div class="menu-item">
+				<img src="/static/img/chickennuggets.jpeg" />
+				<div class="overlay"></div>
+				<div class="menu-item-desc">
+					<h3>Chicken Nugget</h3>
+					<p>If only such a thing exists at the caf</p>
+				</div>
+				<div class="price">99.98$</div>
+				<div class="cart-overlay"><i class="fa fa-cart-plus" aria-hidden="true"></i></div>
+			</div>
+	</div>
+</div>
+
+<h1>Your Cart</h1>
+<div id="cart">
+	<div class="cart-item">
+		<div class="cart-item-name">Chicken Nugget</div>
+		<div class="cart-item-price">99.98$</div>
+		<div class="cart-item-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
+	</div>
+
+	<div class="cart-item">
+		<div class="cart-item-name">Chocolate Muffin</div>
+		<div class="cart-item-price">88.77$</div>
+		<div class="cart-item-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
+	</div>
+
+	<div class="cart-item">
+		<div class="cart-item-name">Mana Potion</div>
+		<div class="cart-item-price">69.69$</div>
+		<div class="cart-item-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
+	</div>
+</div>
 {% endblock %}
