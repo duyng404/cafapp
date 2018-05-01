@@ -5,3 +5,4 @@ cafapp_uwsgi.ini
 cafapp_nginx.conf
 __pycache__
 deploy_instructions.txt
+config.py

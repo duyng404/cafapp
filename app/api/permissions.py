@@ -12,7 +12,6 @@ def valid_call(f):
         abort(403)
     return wrapped_function
 
-@valid_call
 def is_admin(f):
     @wraps(f)
     def wrapped_function(*args, **kwargs):

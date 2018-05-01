@@ -13,7 +13,7 @@ DEV = True
 # Initialize the app
 app = Flask(__name__)
 # Initialize SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ryuko:password@127.0.0.1:5432/cafapp_dev'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://127.0.0.1:5432/cafapp_dev'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 # Flask-Restful config
