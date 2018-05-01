@@ -9,6 +9,7 @@ from app.api.user import UserApi, UsersApi
 api.add_resource(OrderApi,       '/api/v1/orders/<int:order_id>')
 api.add_resource(OrderStatusApi, '/api/v1/orders/<int:order_id>/status')
 api.add_resource(OrdersApi,      '/api/v1/orders')
+api.add_resource(PrepQueueApi,   '/api/v1/prep')
 api.add_resource(UserApi,        '/api/v1/users/<string:username>')
 api.add_resource(UsersApi,       '/api/v1/users')
 

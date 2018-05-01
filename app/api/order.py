@@ -11,10 +11,11 @@ import time
 
 
 _WAIT_QUEUE = deque()
-_CAPACITY = 10
-_RELOAD_TIME = 15 # In minutes
+
 
 class _Worker(threading.Thread):
+    _CAPACITY = 10
+    _RELOAD_TIME = 15  # In minutes
     '''
     Automatically moves things from the Wait Queue to the Prep Queue
     '''
@@ -27,7 +28,7 @@ class _Worker(threading.Thread):
     def run(self):
         self._stopped = False
         while True:
-            time.sleep(_RELOAD_TIME * 60)
+            time.sleep(self._RELOAD_TIME * 60)
             if self.stopped:
                 break
             with self._queue.lock:
@@ -97,8 +98,8 @@ class PrepQueueApi(Resource):
         parser.add_argument('orders', type=int)
 
         args = parser.parse_args()
-        _RELOAD_TIME = args.get('time', _RELOAD_TIME)
-        _CAPACITY = args.get('orders', _CAPACITY)
+        _Worker._RELOAD_TIME = args.get('time', _Worker._RELOAD_TIME)
+        _Worker._CAPACITY = args.get('orders', _Worker._CAPACITY)
 
         return None, 204
 
