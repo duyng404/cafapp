@@ -20,6 +20,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.DateTime, nullable=False)
     status = db.Column(db.Integer)
+    destination = db.Column(db.String(50), nullable=False)
     contents = db.relationship('Menu', secondary=order_menu, lazy='subquery',
                                backref=db.backref('orders', lazy=True))
     owner = db.Column(db.String(120), db.ForeignKey('user.username'), nullable=False)
