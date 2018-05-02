@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 
-DEV = True
+DEV = False
 
 
 # Initialize the app
