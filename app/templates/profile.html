@@ -1,11 +1,82 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Hello, {{ user.full_name }}</h2>
-<p>This is your profile page</p>
-<p>Your username is: {{ user.username }}</p>
-<p>Your student id is: {{ user.student_id }}</p>
-<p>Your admin status is: {{ user.is_admin }}</p>
-<p>I really wish to show you more information but I don't have any. Sadface.</p>
+<h1>My Profile</h1>
 
+<div id="profile">
+	<p>Your username is: {{ user.username }}</p>
+	<p>Your student id is: {{ user.student_id }}</p>
+	{% if user.is_admin %}
+	<p>Your admin status is: {{ user.is_admin }}</p>
+	{% endif %}
+</div>
+
+<h2>Order History</h2>
+<div id="order-hist">
+		<table>
+			<tbody>
+			<col class="row-time">
+			<col class="row-dest">
+			<col class="row-order">
+			<col class="row-total">
+			<col class="row-status">
+				<tr>
+					<th>Time</td>
+					<th>Dest.</td>
+					<th>Order</td>
+					<th>Total</td>
+					<th>Status</td>
+				</tr>
+
+				<tr>
+					<td>2017-12-31 08:32PM</td>
+					<td>Sohre</td>
+					<td>2 Chicken Wings</td>
+					<td>20.00</td>
+					<td>Delivered</td>
+				</tr>
+
+				<tr>
+					<td>2017-12-31 08:32PM</td>
+					<td>College View</td>
+					<td>Chicken Wings, Spaghetti, 2 Hamburger, 3 Sanwiches</td>
+					<td>20.00</td>
+					<td>Delivered</td>
+				</tr>
+
+				<tr>
+					<td>2017-12-31 08:32PM</td>
+					<td>Pittman</td>
+					<td>3 Hamburgers, 2 Sanwiches</td>
+					<td>20.00</td>
+					<td>Cancelled</td>
+				</tr>
+
+				<tr>
+					<td>2017-12-31 08:32PM</td>
+					<td>Sohre</td>
+					<td>2 Chicken Wings</td>
+					<td>20.00</td>
+					<td>Delivered</td>
+				</tr>
+
+				<tr>
+					<td>2017-12-31 08:32PM</td>
+					<td>Sohre</td>
+					<td>2 Chicken Wings</td>
+					<td>20.00</td>
+					<td>Delivered</td>
+				</tr>
+			</tbody>
+		</div>
+		</table>
+</div>
+
+<h2>Specific Order Invoice</h2>
+<div id="invoice">
+	<p>Order Number: 123456789</p>
+	<p>Delivery Destination: Sohre</p>
+	<p>Full Order: 2x Chicken Wings, 3x Hamburgers, 1x Sandwich</p>
+	<p>Grand Total: 50$</p>
+</div>
 {% endblock %}
